@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
@@ -49,48 +50,6 @@ class Menu extends Model implements HasMedia
         'updated_at',
         'deleted_at',
     ];
-
-    /*
-    |--------------------------------------------------------------------------
-    | Accessors
-    |--------------------------------------------------------------------------
-    |
-    | Definição dos métodos GET desta entidade.
-    | Estes métodos permitem formatar os atributos Eloquent obtidos do banco de dados.
-    |
-    */
-
-    /**
-     * Formata o atributo
-     *
-     * @return string
-     */
-    public function getFormattedPriceAttribute()
-    {
-        return number_format($this->attributes['price'], 2, ',', '.');
-    }
-
-    /*
-    |--------------------------------------------------------------------------
-    | Mutators
-    |--------------------------------------------------------------------------
-    |
-    | Definição dos métodos SET desta entidade.
-    | Estes métodos permitem formatar os atributos para o banco de dados.
-    |
-    */
-
-    /**
-     * Formata o atributo
-     *
-     * @return void
-     */
-    public function setPriceAttribute($value)
-    {
-        $formatted_value = str_replace(',', '.', str_replace('.', '', $value));
-
-        $this->attributes['price'] = $formatted_value;
-    }
 
     /*
     |--------------------------------------------------------------------------
