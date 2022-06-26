@@ -24,8 +24,17 @@ class Table extends Model
     protected $fillable = [
         'name',
         'guest_number',
-        'status',
+        'available',
         'location',
+    ];
+
+    /**
+     * Atributos da tabela do banco de dados
+     *
+     * @var array
+     */
+    protected $casts = [
+        'available' => 'boolean',
     ];
 
     /**
