@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('email');
             $table->string('tel_number');
             $table->dateTime('res_date');
-            $table->foreignId('table_id')->constrained();
+            $table->boolean('completed')->default(false);
+            $table->foreignId('board_id')->constrained()->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

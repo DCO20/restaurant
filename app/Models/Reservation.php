@@ -22,13 +22,22 @@ class Reservation extends Model
      * @var array
      */
     protected $fillable = [
-        'table_id',
+        'board_id',
         'first_name',
         'last_name',
         'email',
         'tel_number',
-        'guest_number',
         'res_date',
+        'completed',
+    ];
+
+    /**
+     * Atributos da tabela do banco de dados
+     *
+     * @var array
+     */
+    protected $casts = [
+        'completed' => 'boolean',
     ];
 
     /**
@@ -61,6 +70,6 @@ class Reservation extends Model
      */
     public function board()
     {
-        return $this->belongsTo(Board::class)->where('available', true)->withTrashed();
+        return $this->belongsTo(Board::class)->withTrashed();
     }
 }
