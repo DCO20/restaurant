@@ -59,8 +59,8 @@ class Reservation extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function table()
+    public function board()
     {
-        return $this->belongsTo(Table::class)->where('available', true)->withTrashed();
+        return $this->belongsTo(Board::class)->where('available', true)->withTrashed();
     }
 }

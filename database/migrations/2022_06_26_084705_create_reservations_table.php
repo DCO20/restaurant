@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('email');
             $table->string('tel_number');
-            $table->dateTime('res_date')->unique();
+            $table->dateTime('res_date');
             $table->foreignId('table_id')->constrained();
             $table->timestamps();
             $table->softDeletes();

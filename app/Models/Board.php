@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Table extends Model
+class Board extends Model
 {
     use SoftDeletes;
 
@@ -14,7 +14,7 @@ class Table extends Model
      *
      * @var string
      */
-    protected $table = 'tables';
+    protected $table = 'boards';
 
     /**
      * The attributes that are mass assignable.
@@ -25,7 +25,6 @@ class Table extends Model
         'name',
         'guest_number',
         'available',
-        'location',
     ];
 
     /**
